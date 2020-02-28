@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from "react-lazyload";
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -33,6 +34,39 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+const Spinner = () => (
+    <div className="post loading">
+        <svg
+            width="80"
+            height="80"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid"
+        >
+            <circle
+                cx="50"
+                cy="50"
+                fill="none"
+                stroke="#49d1e0"
+                strokeWidth="10"
+                r="35"
+                strokeDasharray="164.93361431346415 56.97787143782138"
+                transform="rotate(275.845 50 50)"
+            >
+                <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    calcMode="linear"
+                    values="0 50 50;360 50 50"
+                    keyTimes="0;1"
+                    dur="1s"
+                    begin="0s"
+                    repeatCount="indefinite"
+                />
+            </circle>
+        </svg>
+    </div>
+);
+
 export default function CountryCard(props) {
     const classes = useStyles();
     let history = useHistory();
@@ -49,7 +83,14 @@ export default function CountryCard(props) {
             </Grid> :
                 <Grid container >
                     {props.countries.map((country => {
-                        return (<Grid item xs={12} sm={6} lg={3} key={country.name}>
+                        return (
+                            <LazyLoad
+                                key={country.name}
+                                height={100}
+                                offset={[-100, 100]}
+                                placeholder={<Spinner />}
+                            >
+                        <Grid item xs={12} sm={6} lg={3} key={country.name}>
                             <Card className={classes.card} style={props.brightness ? { backgroundColor: '#33001a' } : { backgroundColor: 'inherit' }} >
                                 <CardHeader
                                     title={country.name}
@@ -73,7 +114,9 @@ export default function CountryCard(props) {
                                 </CardActions>
 
                             </Card>
-                        </Grid>)
+                        </Grid>
+                        </LazyLoad>)
+                        
                     }))}
                 </Grid>}
         
