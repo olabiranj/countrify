@@ -74,8 +74,13 @@ export default function SearchBar(props) {
                                 <SearchIcon />
                             </IconButton>
                         </Paper>
+                        <br/>
 
-                        <Typography className={classes.pl} variant="h4" gutterBottom>
+                     </Container>
+                    </Grid>
+                    <Grid item xs={12} sm={4} lg={6} >
+                    <Container className={classes.root}>
+                        <Typography variant="h6" gutterBottom>
                             {msg}
                         </Typography>
                      </Container>
