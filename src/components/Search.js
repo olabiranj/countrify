@@ -42,10 +42,10 @@ export default function SearchBar(props) {
         props.setLoading(true)
         setCountry(e.target.value);
         try {
-            setMsg('')
             let payload = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
             props.setCountries(payload.data);
             props.setLoading(false)
+            setMsg('')
         } catch (error) {
             const payload = await axios.get('https://restcountries.eu/rest/v2/all');
             props.setCountries(payload.data);
