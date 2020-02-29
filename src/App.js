@@ -52,7 +52,7 @@ function App () {
                 setCountries ={setCountries} />
             </Route>
             <Route path='/github' component={() => {
-              window.location.href = 'https://github.com/olabiranj';
+              window.location.href = 'https://github.com/olabiranj/countrify';
               return null;
             }} />
           </Switch>

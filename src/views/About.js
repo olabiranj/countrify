@@ -7,7 +7,6 @@ import Header from '../components/Header';
 
 export default function About(props) {
 
-
     return (
         <React.Fragment >
             <Header brightness={props.brightness}
@@ -31,6 +30,12 @@ export default function About(props) {
                 <Typography variant="body2" gutterBottom>
                     -Olabiran Joshua Olaiya
                 </Typography>
+                <hr/>
+                <Typography variant="body1" gutterBottom>
+                    Contents provided by <span style={{color: "blue"}}>https://restcountries.eu</span>
+                </Typography>
+                <br/>
+
                 
             </Container>
         </React.Fragment>

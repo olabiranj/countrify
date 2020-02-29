@@ -16,6 +16,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import MenuIcon from '@material-ui/icons/Menu';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
@@ -114,15 +115,18 @@ export default function Header(props) {
                     [classes.appBarShift]: open,
                 })} position="static" color={props.brightness ? 'secondary' : 'inherit'}>
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        className={clsx(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                        {history.location.pathname === '/about' ? <IconButton onClick={() => history.push('/')}>
+                            <ArrowBackIosIcon />
+                        </IconButton> :
+                            <IconButton
+                                color="inherit"
+                                aria-label="open drawer"
+                                onClick={handleDrawerOpen}
+                                edge="start"
+                                className={clsx(classes.menuButton, open && classes.hide)}
+                            >
+                                <MenuIcon />
+                            </IconButton>}
                         <Typography variant="h6" className={classes.title} onClick={() => history.push("/")}>
                         Countrify
                     </Typography>
