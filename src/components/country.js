@@ -34,6 +34,11 @@ const useStyles = makeStyles(theme => ({
         marginTop: 30,
         marginBottom: 30,
         marginLeft: 20,
+    },
+    pFixed: {
+        position: 'fixed',
+        bottom: '40%',
+        left: '47%',
     }
 }));
 

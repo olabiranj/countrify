@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -26,17 +27,22 @@ const useStyles = makeStyles(theme => ({
         height: 28,
         margin: 4,
     },
+    pl:{
+        paddingLeft: 30,
+    }
 }));
 
 export default function SearchBar(props) {
     const classes = useStyles();
     const [country, setCountry] = useState('');
+    const [msg, setMsg] = useState('');
     
     const findCountry = async(e) => {
         e.preventDefault();
         props.setLoading(true)
         setCountry(e.target.value);
         try {
+            setMsg('')
             let payload = await axios.get(`https://restcountries.eu/rest/v2/name/${country}`);
             props.setCountries(payload.data);
             props.setLoading(false)
@@ -44,6 +50,8 @@ export default function SearchBar(props) {
             const payload = await axios.get('https://restcountries.eu/rest/v2/all');
             props.setCountries(payload.data);
             props.setLoading(false);
+            setMsg('Country not found!')
+
         }
     }
     
@@ -66,6 +74,10 @@ export default function SearchBar(props) {
                                 <SearchIcon />
                             </IconButton>
                         </Paper>
+
+                        <Typography className={classes.pl} variant="h4" gutterBottom>
+                            {msg}
+                        </Typography>
                      </Container>
                     </Grid>
                 </Grid>
