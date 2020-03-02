@@ -26,9 +26,6 @@ const useStyles = makeStyles(theme => ({
     divider: {
         height: 28,
         margin: 4,
-    },
-    pl:{
-        paddingLeft: 30,
     }
 }));
 

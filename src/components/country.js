@@ -53,6 +53,8 @@ export default function Country(props) {
     let [crsSymb, setCrsSymb] = useState();
     let [lang, setLang] = useState();
     let [call, setCall] = useState();
+    let [domain, setDomain] = useState();
+    let [time, setTime] = useState();
     useEffect(() => {
         setLoading(true);
         const fecthData = async () => {
@@ -63,15 +65,18 @@ export default function Country(props) {
             setCrsSymb(payload.data[0].currencies[0].symbol);
             setLang(payload.data[0].languages[0].name);
             setCall(payload.data[0].callingCodes[0]);
+            setDomain(payload.data[0].topLevelDomain[0]);
+            setTime(payload.data[0].timezones[0]);
             setLoading(false);
         }
-        
         fecthData()
     }, []);
-    const toCommas = () => {
-        // return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const popCommas = () => {
         let val = `${country.population}`;
-        console.log(country.population);
+        return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+    const areaCommas = () => {
+        let val = `${country.area}`;
         return val.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
     return (
@@ -100,14 +105,17 @@ export default function Country(props) {
                                     title={country.name}
                                 />
                                 <CardContent>
-                                    <h3>Population: {toCommas()}</h3>
+                                    <h3>Population: {popCommas()}</h3>
                                     <h4>Region: {country.region}</h4>
                                     <h4>Sub Region: {country.subregion}</h4>
                                     <h4>Capital: {country.capital}</h4>
                                     <h4>Calling Code: {call}</h4>
-    <                               h4>Currency: {crs}({crsSymb})</h4>
+                                    <h4>Area: {areaCommas()} KmSq</h4>
+                                    <h4>Currency: {crs}({crsSymb})</h4>
+                                    <h4>Domain: ({domain})</h4>
+                                    <h4>Time: {time}</h4>
                                     <h4>Currency Code: {code}</h4>
-<                               h4>General language: {lang}</h4>
+                                    <h4>General language: {lang}</h4>
                                 </CardContent>
                             </Card>
                         </Grid>
