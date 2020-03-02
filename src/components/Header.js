@@ -195,7 +195,7 @@ export default function Header(props) {
                     <ListItem button onClick={() => {
                         props.setLoading(true);
                         setOpen(false);
-                        axios.get(`https://restcountries.eu/rest/v2/region/america`)
+                        axios.get(`https://restcountries.eu/rest/v2/region/americas`)
                             .then(payload => {
                                 props.setCountries(payload.data)
                                 props.setLoading(false);
