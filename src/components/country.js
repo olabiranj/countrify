@@ -55,6 +55,7 @@ export default function Country(props) {
     let [call, setCall] = useState();
     let [domain, setDomain] = useState();
     let [time, setTime] = useState();
+    let [borders, setBorders] = useState();
     useEffect(() => {
         setLoading(true);
         const fecthData = async () => {
@@ -67,7 +68,10 @@ export default function Country(props) {
             setCall(payload.data[0].callingCodes[0]);
             setDomain(payload.data[0].topLevelDomain[0]);
             setTime(payload.data[0].timezones[0]);
+            setBorders(payload.data[0].borders[0]);
+            console.log(payload.data[0].borders[0]);
             setLoading(false);
+            console.log(borders)
         }
         fecthData()
     }, []);
