@@ -3,17 +3,17 @@
   "name": "Countrify",
   "icons": [
     {
-      "src": "c128.png",
+      "src": "w1.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "c128.png",
+      "src": "w1.png",
       "type": "image/png",
       "sizes": "128x128"
     },
     {
-      "src": "c512.png",
+      "src": "world.png",
       "type": "image/png",
       "sizes": "512x512"
     }
