@@ -63,6 +63,11 @@ const useStyles = makeStyles(theme => ({
     drawerPaper: {
         width: drawerWidth,
     },
+    drawerPaper2: {
+        width: drawerWidth,
+        backgroundColor: 'rgb(26, 0, 13)',
+        color: 'white',
+    },
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
@@ -154,14 +159,15 @@ export default function Header(props) {
                 variant="persistent"
                 anchor="left"
                 open={open}
-                
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
+                classes={props.brightness ? {
+                    paper: classes.drawerPaper2,
+                } : {
+                        paper: classes.drawerPaper,
+                    }}
                 
             >
                 <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose}>
+                    <IconButton color="inherit" onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
