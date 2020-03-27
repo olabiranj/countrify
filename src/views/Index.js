@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from '../components/Header';
-import SearchBar from '../components/Search';
-import CountryCard from '../components/countries';
+import Header from '../components/Header/Header';
+import SearchBar from '../components/Search/Search';
+import CountryCard from '../components/countries/countries';
 
 
 export default function Index(props) {

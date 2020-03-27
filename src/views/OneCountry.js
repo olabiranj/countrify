@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from '../components/Header';
-import Country from '../components/country';
+import Header from '../components/Header/Header';
+import Country from '../components/country/country';
 
 
 export default function OneCountry(props) {
