@@ -1,3 +1,3 @@
-test('Fake Header Test', () => {
+test("Fake Header Test", () => {
     expect(true).toBeTruthy();
-})
+});
