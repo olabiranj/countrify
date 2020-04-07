@@ -118,6 +118,7 @@ export default function Header(props) {
             <AppBar position="fixed"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
+                // eslint-disable-next-line react/jsx-no-duplicate-props
                 })} position="static" color={props.brightness ? 'secondary' : 'inherit'}>
                 <Toolbar>
                         {history.location.pathname === '/about' ? <IconButton onClick={() => history.push('/')}>

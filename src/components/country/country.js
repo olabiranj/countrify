@@ -1,14 +1,14 @@
-import React, { useEffect, useState} from 'react';
-import axios from 'axios';
-import { useHistory, useParams } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import React, { useEffect, useState} from './node_modules/react';
+import axios from './node_modules/axios';
+import { useHistory, useParams } from './node_modules/react-router-dom';
+import { makeStyles } from './node_modules/@material-ui/core/styles';
+import Card from './node_modules/@material-ui/core/Card';
+import CardHeader from './node_modules/@material-ui/core/CardHeader';
+import CardMedia from './node_modules/@material-ui/core/CardMedia';
+import CardContent from './node_modules/@material-ui/core/CardContent';
+import Button from './node_modules/@material-ui/core/Button';
+import Grid from './node_modules/@material-ui/core/Grid';
+import CircularProgress from './node_modules/@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
     card: {

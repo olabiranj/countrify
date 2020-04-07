@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from '../components/Header/Header';
 import SearchBar from '../components/Search/Search';
-import CountryCard from '../components/countries/countries';
+import CountryCard from '../components/countries/Countries';
 
 
 export default function Index(props) {
