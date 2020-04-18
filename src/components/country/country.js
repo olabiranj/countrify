@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 import { useHistory, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -153,3 +154,7 @@ export default function Country(props) {
     </div>
   );
 }
+
+Country.propTypes = {
+  brightness: PropTypes.bool,
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -119,8 +120,8 @@ export default function Header(props) {
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
-            // eslint-disable-next-line react/jsx-no-duplicate-props
           })}
+          // eslint-disable-next-line react/jsx-no-duplicate-props
           position="static"
           color={props.brightness ? "secondary" : "inherit"}
         >
@@ -300,3 +301,9 @@ export default function Header(props) {
     </React.Fragment>
   );
 }
+
+Header.propTypes = {
+  brightness: PropTypes.bool,
+  setLoading: PropTypes.func,
+  setCountries: PropTypes.func,
+};
