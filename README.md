@@ -1,5 +1,8 @@
 Welcome to COUNTRIFY, an online platform which provides basic information about all countries in the world. Countrify allows you to find countries by their names or continents. Information provided by countrify includes country name, estimated population, region, etc.
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Usage and Setup
+
+Clone this repo. Go into the root folder and run `npm install` to install all necessary dependencies.
 
 ## Available Scripts
 
@@ -16,14 +19,20 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Credit
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The news sources are gotten from https://restcountries.eu
+
+### Like this project?
+
+Don't forget to star :star2: this repo.
+
+### Want to contribute or need to see some improvements?
+
+I would love that, please create an issue or send a PR.
