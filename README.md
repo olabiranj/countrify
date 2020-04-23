@@ -1,5 +1,9 @@
 Welcome to COUNTRIFY, an online platform which provides basic information about all countries in the world. Countrify allows you to find countries by their names or continents. Information provided by countrify includes country name, estimated population, region, etc.
 
+### Live
+
+https://gituth.herokuapp.com/
+
 ### Usage and Setup
 
 Clone this repo. Go into the root folder and run `npm install` to install all necessary dependencies.
