@@ -94,7 +94,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+export default function Header({
+  brightness,
+  setCountries,
+  setLoading,
+  setBrightness,
+}) {
   let history = useHistory();
   const classes = useStyles();
   const theme = useTheme();
@@ -109,7 +114,7 @@ export default function Header(props) {
   };
 
   const changeBrightness = () => {
-    props.setBrightness(!props.brightness);
+    setBrightness(!brightness);
   };
 
   return (
@@ -123,7 +128,7 @@ export default function Header(props) {
           })}
           // eslint-disable-next-line react/jsx-no-duplicate-props
           position="static"
-          color={props.brightness ? "secondary" : "inherit"}
+          color={brightness ? "secondary" : "inherit"}
         >
           <Toolbar>
             {history.location.pathname === "/about" ? (
@@ -157,7 +162,7 @@ export default function Header(props) {
               About
             </Link>
 
-            {!props.brightness ? (
+            {!brightness ? (
               <IconButton color="inherit" onClick={changeBrightness}>
                 <Brightness4Icon />
               </IconButton>
@@ -178,7 +183,7 @@ export default function Header(props) {
         anchor="left"
         open={open}
         classes={
-          props.brightness
+          brightness
             ? {
                 paper: classes.drawerPaper2,
               }
@@ -202,13 +207,13 @@ export default function Header(props) {
           <ListItem
             button
             onClick={() => {
-              props.setLoading(true);
+              setLoading(true);
               setOpen(false);
               axios
                 .get(`https://restcountries.eu/rest/v2/all`)
                 .then((payload) => {
-                  props.setCountries(payload.data);
-                  props.setLoading(false);
+                  setCountries(payload.data);
+                  setLoading(false);
                 })
                 .catch((err) => console.log(err));
             }}
@@ -218,13 +223,13 @@ export default function Header(props) {
           <ListItem
             button
             onClick={() => {
-              props.setLoading(true);
+              setLoading(true);
               setOpen(false);
               axios
                 .get(`https://restcountries.eu/rest/v2/region/africa`)
                 .then((payload) => {
-                  props.setCountries(payload.data);
-                  props.setLoading(false);
+                  setCountries(payload.data);
+                  setLoading(false);
                 })
                 .catch((err) => console.log(err));
             }}
@@ -234,13 +239,13 @@ export default function Header(props) {
           <ListItem
             button
             onClick={() => {
-              props.setLoading(true);
+              setLoading(true);
               setOpen(false);
               axios
                 .get(`https://restcountries.eu/rest/v2/region/americas`)
                 .then((payload) => {
-                  props.setCountries(payload.data);
-                  props.setLoading(false);
+                  setCountries(payload.data);
+                  setLoading(false);
                 })
                 .catch((err) => console.log(err));
             }}
@@ -250,13 +255,13 @@ export default function Header(props) {
           <ListItem
             button
             onClick={() => {
-              props.setLoading(true);
+              setLoading(true);
               setOpen(false);
               axios
                 .get(`https://restcountries.eu/rest/v2/region/asia`)
                 .then((payload) => {
-                  props.setCountries(payload.data);
-                  props.setLoading(false);
+                  setCountries(payload.data);
+                  setLoading(false);
                 })
                 .catch((err) => console.log(err));
             }}
@@ -267,13 +272,13 @@ export default function Header(props) {
             <ListItemText
               primary="Europe"
               onClick={() => {
-                props.setLoading(true);
+                setLoading(true);
                 setOpen(false);
                 axios
                   .get(`https://restcountries.eu/rest/v2/region/europe`)
                   .then((payload) => {
-                    props.setCountries(payload.data);
-                    props.setLoading(false);
+                    setCountries(payload.data);
+                    setLoading(false);
                   })
                   .catch((err) => console.log(err));
               }}
@@ -283,13 +288,13 @@ export default function Header(props) {
             <ListItemText
               primary="Oceania"
               onClick={() => {
-                props.setLoading(true);
+                setLoading(true);
                 setOpen(false);
                 axios
                   .get(`https://restcountries.eu/rest/v2/region/oceania`)
                   .then((payload) => {
-                    props.setCountries(payload.data);
-                    props.setLoading(false);
+                    setCountries(payload.data);
+                    setLoading(false);
                   })
                   .catch((err) => console.log(err));
               }}
@@ -306,4 +311,5 @@ Header.propTypes = {
   brightness: PropTypes.bool,
   setLoading: PropTypes.func,
   setCountries: PropTypes.func,
+  setBrightness: PropTypes.func,
 };

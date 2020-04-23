@@ -30,26 +30,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar(props) {
+export default function SearchBar({ setLoading, setCountries, brightness }) {
   const classes = useStyles();
   const [country, setCountry] = useState("");
   const [msg, setMsg] = useState("");
 
   const findCountry = async (e) => {
     e.preventDefault();
-    props.setLoading(true);
+    setLoading(true);
     setCountry(e.target.value);
     try {
       let payload = await axios.get(
         `https://restcountries.eu/rest/v2/name/${country}`
       );
-      props.setCountries(payload.data);
-      props.setLoading(false);
+      setCountries(payload.data);
+      setLoading(false);
       setMsg("");
     } catch (error) {
       const payload = await axios.get("https://restcountries.eu/rest/v2/all");
-      props.setCountries(payload.data);
-      props.setLoading(false);
+      setCountries(payload.data);
+      setLoading(false);
       setMsg("Country not found!");
     }
   };
@@ -62,7 +62,7 @@ export default function SearchBar(props) {
             <Paper
               component="form"
               style={
-                props.brightness
+                brightness
                   ? {
                       backgroundColor: "#b30059",
                     }

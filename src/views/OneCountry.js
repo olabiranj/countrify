@@ -3,20 +3,27 @@ import PropTypes from "prop-types";
 import Header from "../components/Header/Header";
 import Country from "../components/Country/Country";
 
-export default function OneCountry(props) {
+export default function OneCountry({
+  brightness,
+  setBrightness,
+  setCountries,
+  setLoading,
+  loading,
+  countries,
+}) {
   return (
     <React.Fragment>
       <Header
-        brightness={props.brightness}
-        setBrightness={props.setBrightness}
-        setCountries={props.setCountries}
-        setLoading={props.setLoading}
+        brightness={brightness}
+        setBrightness={setBrightness}
+        setCountries={setCountries}
+        setLoading={setLoading}
       />
       <Country
-        brightness={props.brightness}
-        countries={props.countries}
-        loading={props.loading}
-        setLoading={props.setLoading}
+        brightness={brightness}
+        countries={countries}
+        loading={loading}
+        setLoading={setLoading}
       />
     </React.Fragment>
   );

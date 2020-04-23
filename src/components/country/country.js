@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Country(props) {
+export default function Country({ brightness }) {
   const classes = useStyles();
   let history = useHistory();
   let [loading, setLoading] = useState(false);
@@ -101,7 +101,7 @@ export default function Country(props) {
             }}
           >
             <CircularProgress
-              color={props.brightness ? "secondary" : "primary"}
+              color={brightness ? "secondary" : "primary"}
               className={classes.pFixed}
               disableShrink
             />
@@ -114,14 +114,14 @@ export default function Country(props) {
               variant="outlined"
               className={classes.my}
               onClick={() => history.goBack()}
-              color={props.brightness ? "secondary" : "inherit"}
+              color={brightness ? "secondary" : "inherit"}
             >
               Go Back
             </Button>
             <Card
               className={classes.card}
               style={
-                props.brightness
+                brightness
                   ? { backgroundColor: "#33001a" }
                   : { backgroundColor: "inherit" }
               }

@@ -68,7 +68,7 @@ const Spinner = () => (
   </div>
 );
 
-export default function CountryCard(props) {
+export default function CountryCard({ brightness, loading, countries }) {
   const classes = useStyles();
   let history = useHistory();
   const toCommas = (value) => {
@@ -76,7 +76,7 @@ export default function CountryCard(props) {
   };
   return (
     <div>
-      {props.loading ? (
+      {loading ? (
         <Grid container>
           <Grid
             item
@@ -89,7 +89,7 @@ export default function CountryCard(props) {
             }}
           >
             <CircularProgress
-              color={props.brightness ? "secondary" : "primary"}
+              color={brightness ? "secondary" : "primary"}
               className={classes.pFixed}
               disableShrink
             />
@@ -97,7 +97,7 @@ export default function CountryCard(props) {
         </Grid>
       ) : (
         <Grid container>
-          {props.countries.map((country) => {
+          {countries.map((country) => {
             return (
               <LazyLoad
                 key={country.name}
@@ -109,7 +109,7 @@ export default function CountryCard(props) {
                   <Card
                     className={classes.card}
                     style={
-                      props.brightness
+                      brightness
                         ? { backgroundColor: "#33001a" }
                         : { backgroundColor: "inherit" }
                     }
@@ -129,7 +129,7 @@ export default function CountryCard(props) {
                       <Button
                         variant="outlined"
                         onClick={() => history.push(`/country/${country.name}`)}
-                        color={props.brightness ? "secondary" : "inherit"}
+                        color={brightness ? "secondary" : "inherit"}
                       >
                         Read More...
                       </Button>

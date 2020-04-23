@@ -4,25 +4,32 @@ import Header from "../components/Header/Header";
 import SearchBar from "../components/Search/Search";
 import CountryCard from "../components/countries/Countries";
 
-export default function Index(props) {
+export default function Index({
+  brightness,
+  setBrightness,
+  setCountries,
+  setLoading,
+  loading,
+  countries,
+}) {
   return (
     <React.Fragment>
       <Header
-        brightness={props.brightness}
-        setBrightness={props.setBrightness}
-        setCountries={props.setCountries}
-        setLoading={props.setLoading}
+        brightness={brightness}
+        setBrightness={setBrightness}
+        setCountries={setCountries}
+        setLoading={setLoading}
       />
       <SearchBar
-        brightness={props.brightness}
-        loading={props.loading}
-        setLoading={props.setLoading}
-        setCountries={props.setCountries}
+        brightness={brightness}
+        loading={loading}
+        setLoading={setLoading}
+        setCountries={setCountries}
       />
       <CountryCard
-        brightness={props.brightness}
-        countries={props.countries}
-        loading={props.loading}
+        brightness={brightness}
+        countries={countries}
+        loading={loading}
       />
     </React.Fragment>
   );

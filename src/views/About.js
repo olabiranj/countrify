@@ -5,14 +5,19 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Header from "../components/Header/Header";
 
-export default function About(props) {
+export default function About({
+  brightness,
+  setBrightness,
+  setCountries,
+  setLoading,
+}) {
   return (
     <React.Fragment>
       <Header
-        brightness={props.brightness}
-        setBrightness={props.setBrightness}
-        setCountries={props.setCountries}
-        setLoading={props.setLoading}
+        brightness={brightness}
+        setBrightness={setBrightness}
+        setCountries={setCountries}
+        setLoading={setLoading}
       />
       <CssBaseline />
       <Container maxWidth="lg" style={{ height: "100vh" }}>
