@@ -2,7 +2,7 @@ Welcome to COUNTRIFY, an online platform which provides basic information about 
 
 ### Live
 
-https://gituth.herokuapp.com/
+https://countriphy.herokuapp.com/
 
 ### Usage and Setup
 
@@ -31,7 +31,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ### Credit
 
-The news sources are gotten from https://restcountries.eu
+The data used are gotten from https://restcountries.eu
 
 ### Like this project?
 
