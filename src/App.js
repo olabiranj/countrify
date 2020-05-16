@@ -9,6 +9,16 @@ function App() {
   const [brightness, setBrightness] = useState(false);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const changeMode = () => {
+    if (brightness === false) {
+      window.localStorage.setItem("theme", "dark");
+      setBrightness(true);
+    } else {
+      window.localStorage.setItem("theme", "light");
+      setBrightness(false);
+    }
+  };
   useEffect(() => {
     setLoading(true);
     const fecthData = async () => {
@@ -16,7 +26,11 @@ function App() {
       setCountries(payload.data);
       setLoading(false);
     };
-
+    if (window.localStorage.getItem("theme") === "light") {
+      setBrightness(false);
+    } else {
+      setBrightness(true);
+    }
     fecthData();
   }, []);
   return (
@@ -33,7 +47,7 @@ function App() {
             <Route exact path="/">
               <Index
                 brightness={brightness}
-                setBrightness={setBrightness}
+                setBrightness={changeMode}
                 countries={countries}
                 loading={loading}
                 setLoading={setLoading}
@@ -43,14 +57,14 @@ function App() {
             <Route path="/about">
               <About
                 brightness={brightness}
-                setBrightness={setBrightness}
+                setBrightness={changeMode}
                 setLoading={setLoading}
               />
             </Route>
             <Route path="/country/:name">
               <OneCountry
                 brightness={brightness}
-                setBrightness={setBrightness}
+                setBrightness={changeMode}
                 countries={countries}
                 loading={loading}
                 setLoading={setLoading}

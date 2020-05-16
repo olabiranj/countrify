@@ -171,9 +171,12 @@ export default function Header({
                 <Brightness5Icon />
               </IconButton>
             )}
-            <IconButton color="inherit" onClick={() => history.push("/github")}>
-              <GitHubIcon />
-            </IconButton>
+            <a className='text-light' href="https://github.com/olabiranj" target="_blank" rel="noopener noreferrer">
+              <IconButton color="inherit">
+
+                <GitHubIcon />
+              </IconButton>
+            </a>
           </Toolbar>
         </AppBar>
       </div>
